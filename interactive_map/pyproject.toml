@@ -13,6 +13,7 @@ dependencies = [
     "pillow (>=12.0.0,<13.0.0)",
     "djangorestframework (>=3.16.1,<4.0.0)",
     "django-admin-sortable2 (>=2.2.8,<3.0.0)",
+    "django-ckeditor (>=6.7.3,<7.0.0)",
 ]
 
 

@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     "app.apps.AppConfig",
     "rest_framework",
     "adminsortable2",
+    "ckeditor",
 ]
 
 MIDDLEWARE = [
