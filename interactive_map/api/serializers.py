@@ -26,4 +26,4 @@ class PlaceSerializer(serializers.ModelSerializer):
         return [img.image.url for img in obj.imgs.all()]
 
     def get_coordinates(self, obj):
-        return {"lng": str(obj.longitude), "lat": str(obj.latitude)}
+        return {"lng": obj.longitude, "lat": obj.latitude}
