@@ -11,7 +11,9 @@ urlpatterns = [
     path("places/", include("api.urls")),
     path("admin/", admin.site.urls),
     re_path(
-        r"^(?P<path>.*)$", serve, {"document_root": settings.BASE_DIR / "frontend"}
+        r"^(?!media/)(?P<path>.*)$",
+        serve,
+        {"document_root": settings.BASE_DIR / "frontend"},
     ),
 ]
 if settings.DEBUG:
