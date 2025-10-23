@@ -1,13 +1,15 @@
+from adminsortable2.admin import SortableTabularInline, SortableAdminBase
 from django.contrib import admin
 from app.models import Place, PlaceImage
 from django.utils.safestring import mark_safe
 
 
-class PlaceImageInline(admin.TabularInline):
+class PlaceImageInline(SortableTabularInline):
     model = PlaceImage
     readonly_fields = ("display_image",)
     extra = 1
     fields = ("image", "display_image")
+    can_delete = False
 
     def display_image(self, object):
         if object.image:
@@ -17,7 +19,8 @@ class PlaceImageInline(admin.TabularInline):
     display_image.short_description = "Превью картинки"
 
 
-class PlaceAdmin(admin.ModelAdmin):
+@admin.register(Place)
+class PlaceAdmin(SortableAdminBase, admin.ModelAdmin):
     list_display = (
         "id",
         "title",
@@ -28,6 +31,3 @@ class PlaceAdmin(admin.ModelAdmin):
     )
     list_display_links = ("title",)
     inlines = [PlaceImageInline]
-
-
-admin.site.register(Place, PlaceAdmin)
