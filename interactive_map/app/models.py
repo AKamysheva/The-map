@@ -7,7 +7,7 @@ def place_image_path(instance, filename):
 
 
 class Place(models.Model):
-    title = models.CharField(max_length=30, verbose_name="Название места")
+    title = models.CharField(max_length=150, verbose_name="Название места")
     description_short = models.TextField(verbose_name="Короткое описание")
     description_long = RichTextField(verbose_name="Подробное описание")
     longitude = models.FloatField(verbose_name="Долгота")
